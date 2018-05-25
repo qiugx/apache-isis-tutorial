@@ -6,7 +6,11 @@
 
 todoapp 示例应用程序，它是一个相当完整的应用程序，用于跟踪代办事项，基于单个域类`ToDoItem`和存储库`ToDoItems`。
 
-虽然该应用没有囊括所有的内容，但应用程序仍然展示了大量的 Apache Isis 的能力：贡献的动作/集合/属性的使用，由`ToDoItemContributions`来演示; 视图模型由`ToDoItemsByCategoryViewModel`和`ToDoItemsByDateRangeViewModel`来演示; 仪表盘由`ToDoAppDashboard`演示; 通过`DemoDomainEventSubscriptions`服务演示内部事件总线的使用。
+虽然该应用没有囊括所有的内容，但应用程序仍然展示了大量的 Apache Isis 的能力：
+贡献的动作/集合/属性的使用，由`ToDoItemContributions`来演示; 
+视图模型由`ToDoItemsByCategoryViewModel`和`ToDoItemsByDateRangeViewModel`来演示; 
+仪表盘由`ToDoAppDashboard`演示; 
+通过`DemoDomainEventSubscriptions`服务演示内部事件总线的使用。
 
 领域模型如下：
 
@@ -17,7 +21,14 @@ todoapp 示例应用程序，它是一个相当完整的应用程序，用于跟
 [dom.ToDoItemRepositoryImpl]^-[dom.ToDoItemRepositoryImplUsingTypesafeQueries]
 ```
 
-该应用程序还集成了许多 [Isis Addons](https://www.isisaddons.org/) 插件，如[安全](https://github.com/isisaddons/isis-module-security)、[命令分析](https://github.com/isisaddons/isis-module-command)、[审计](https://github.com/isisaddons/isis-module-audit)、[事件发布](https://github.com/isisaddons/isis-module-publishing)。 虽然  Isis Addons 插件不是 Apache 软件基金会（简称“ASF”）的一部分，但它们都是在 Apache License 2.0 下授权的，并由 Apache Isis 提交者维护。
+该应用程序还集成了许多 [Isis Addons](https://www.isisaddons.org/) 插件，
+如[安全](https://github.com/isisaddons/isis-module-security)、
+[命令分析](https://github.com/isisaddons/isis-module-command)、
+[审计](https://github.com/isisaddons/isis-module-audit)、
+[事件发布](https://github.com/isisaddons/isis-module-publishing)。 
+
+虽然  Isis Addons 插件不是 Apache 软件基金会（简称“ASF”）的一部分，但它们都是在 Apache License 2.0 下授权的，并由 Apache Isis 提交者维护。
+
 
 该 todoapp 应用托管在 https://github.com/isisaddons/isis-app-todoapp，你可以随意检出该源码进行学习。
 
@@ -46,7 +57,8 @@ mvn clean install
 
 ## 运行应用
 
-todoapp 应用程序会生成单个 WAR 文件，配置为运行 Wicket 查看器和 Restful Objects 查看器。 应用程序还将 JDO Objectstore 配置为使用内存中的 HSQLDB 连接。
+todoapp 应用程序会生成单个 WAR 文件，配置为运行 Wicket 查看器和 Restful Objects 查看器。
+应用程序还将 JDO Objectstore 配置为使用内存中的 HSQLDB 连接。
 
 构建应用程序后，您可以在 Maven 托管的 Jetty 实例中运行该 WAR：
 
@@ -92,12 +104,14 @@ Maven/org/webjars/swagger-ui/2.1.3/swagger-ui-2.1.3.jar!/META-INF/resources],AVA
 
 该应用程序提供了一个欢迎页面，用于解释生成的类和文件，并提供详细的指导和下一步该做什么。
 
-应用程序本身配置使用 shiro 了保证安全性，在 `WEB-INF/shiro.ini` 配置文件中进行配置的。要登录，请使用默认的账号密码 todoapp-admin/pass。
+应用程序本身配置使用 shiro 了保证安全性，在 `WEB-INF/shiro.ini` 配置文件中进行配置的。
+要登录，请使用默认的账号密码 todoapp-admin/pass。
 
 
 ## 应用结构
 
-如上所述，生成的应用是用于跟踪待办事项的完整的应用。它由以下模块组成（使用 JDOQL 或 DataNucleus 的类型安全查询作为查询数据库的方法的查询）：
+如上所述，生成的应用是用于跟踪待办事项的完整的应用。
+它由以下模块组成（使用 JDOQL 或 DataNucleus 的类型安全查询作为查询数据库的方法的查询）：
 
 * todoapp：父模块 (聚合器) 。
 * todoapp-app：应用程序清单，用于引导应用程序和集成测试。
@@ -105,7 +119,7 @@ Maven/org/webjars/swagger-ui/2.1.3/swagger-ui-2.1.3.jar!/META-INF/resources],AVA
 * todoapp-dom：领域对象模型，由`ToDoItem`和`ToDoItems`领域服务组成。还定义了`ToDoItemRepository`存储库类。
 * todoapp-fixture：用于在演示或单元测试时初始化系统的领域对象固件。
 * todoapp-integtests：从 UI 到数据库执行的端到端集成测试。
-* todoapp-webapp：使用 Wicket 查看器或 RestfulObjects 查看器作为 webap p运行（使用 `web.xml`）。
+* todoapp-webapp：使用 Wicket 查看器或 RestfulObjects 查看器作为 webapp运行（使用 `web.xml`）。
 
 
 
